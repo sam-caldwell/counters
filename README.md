@@ -5,6 +5,10 @@ Counter
 
 A set of counters which helps avoid reinvented wheels.
 
+## Status
+
+[![Go Tests](https://github.com/sam-caldwell/counters/actions/workflows/go-tests.yaml/badge.svg)](https://github.com/sam-caldwell/simpleSet/actions/workflows/go-tests.yaml)
+
 ## Usage
 
 ### Installation
