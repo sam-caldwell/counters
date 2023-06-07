@@ -1,17 +1,17 @@
 package counters
 
+import "fmt"
+
 // DecrementIf - decrement to floor (0) if true otherwise return -1
-func (counter *ConditionalCounter) DecrementIf(ok bool) int {
+func (counter *ConditionalCounter) DecrementIf(ok bool) (v int, err error) {
 	const notOK = -1 //If not ok, return -1
 	if ok {
-		//We increment after we return the value (if ok)
-		//We will do nothing at the floor (0)
-		defer func() {
-			if counter.value > 0 {
-				counter.value--
-			}
-		}()
-		return int(counter.value) //if ok, return state
+		if counter.value > uint(int(^uint(0)>>1)) {
+			err = fmt.Errorf("ConditionalCounter exceeds limit")
+		}
+		v = int(counter.value)
+		counter.value--
+		return v, err
 	}
-	return notOK
+	return notOK, err
 }

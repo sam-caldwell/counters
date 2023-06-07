@@ -7,7 +7,7 @@ func TestConditionalCounter_Value(t *testing.T) {
 	if count.Value() != 0 {
 		t.Fail()
 	}
-	if count.Increment() != 0 {
+	if v, _ := count.Increment(); v != 0 {
 		t.Fail()
 	}
 	if count.Value() != 1 {
