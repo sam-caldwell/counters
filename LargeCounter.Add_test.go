@@ -7,8 +7,7 @@ import (
 )
 
 func TestLargeCounter_Add(t *testing.T) {
-	func() {
-		//Create 64-bit counter
+	t.Run("Create 64-bit counter", func(t *testing.T) {
 		c, err := NewLargeCounter(64)
 		if err != nil {
 			t.Fatal(err)
@@ -27,10 +26,9 @@ func TestLargeCounter_Add(t *testing.T) {
 		if err.Error() != errors.OverflowError {
 			t.Fatal("error mismatch")
 		}
-	}()
+	})
 
-	func() {
-		//10-element 64-bit counter
+	t.Run("10-element 64-bit counter", func(t *testing.T) {
 		c, err := NewLargeCounter(64 * 10)
 		if err != nil {
 			t.Fatal(err)
@@ -70,5 +68,5 @@ func TestLargeCounter_Add(t *testing.T) {
 		if err.Error() != errors.OverflowError {
 			t.Fatal("overflow error message mismatch")
 		}
-	}()
+	})
 }

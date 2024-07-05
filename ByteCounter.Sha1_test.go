@@ -11,24 +11,18 @@ func TestByteCounter_Sha1(t *testing.T) {
 		hash := sha1.Sum(i)
 		return hex.EncodeToString(hash[:])
 	}
-	//
-	// Happy: Test empty hash
-	//
-	func() {
+	t.Run("Happy path: empty hash", func(t *testing.T) {
 		var b ByteCounter
 		if b.Sha1() != hashFunc([]byte{}) {
 			t.Fatal("sha1 hash of empty state fails")
 		}
-	}()
-	//
-	// Happy: Test hash of non-nil set
-	//
-	func() {
+	})
+	t.Run("Happy path: test hash of non-nil set", func(t *testing.T) {
 		input := []byte{0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A}
 		var b ByteCounter
 		b.v = input
 		if b.Sha1() != hashFunc(input) {
 			t.Fatal("mismatch")
 		}
-	}()
+	})
 }

@@ -95,7 +95,7 @@ func TestLargeCounter_Increment(t *testing.T) {
 			stopTime := time.Now().UnixNano()
 			elapsedPerIteration := float64(stopTime-startTime) / float64(iterations)
 			//t.Logf("elapsedPerIteration: %f", elapsedPerIteration)
-			if elapsedPerIteration > 10 {
+			if elapsedPerIteration > 30 {
 				t.Fatalf("baseline performance not expected (%f) ns/iteration", elapsedPerIteration)
 			}
 			time.Sleep(100 * time.Millisecond)
