@@ -2,7 +2,7 @@ package counters
 
 import (
 	"fmt"
-	"github.com/sam-caldwell/monorepo/go/exit/errors"
+	"github.com/sam-caldwell/errors"
 )
 
 // Add - Add value to the LargeCounter.
