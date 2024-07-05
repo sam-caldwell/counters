@@ -9,7 +9,8 @@ A set of counters which helps avoid reinvented wheels.
 ```golang
 package main
 
-import counters "github.com/sam-caldwell/counters"
+import "github.com/sam-caldwell/counters"
+
 [reverseBytes.go](reverseBytes.go)
 var count counters.Simple
 count.Increment() //output: 0
