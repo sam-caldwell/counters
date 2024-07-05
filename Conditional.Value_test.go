@@ -10,10 +10,9 @@ func TestConditional_Value(t *testing.T) {
 		t.Fatal("initial state")
 	}
 	if v, _ := count.Increment(); v != 0 {
-		t.Fatal("step 1")
+		t.Fatalf("step 1")
 	}
-	if count.Value() != 1 {
-		t.Fatal("step 2")
+	if v := count.Value(); v != 1 {
+		t.Fatalf("step 2 v=%d", v)
 	}
-	t.Fatal("step 2")
 }
